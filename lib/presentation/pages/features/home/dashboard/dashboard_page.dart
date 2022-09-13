@@ -50,7 +50,7 @@ class DashboardPage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 30),
                 child: Text(
-                  'Pemberitahuan Acara',
+                  'Pemberitahuan',
                   style: FontApp.primaryStyle.copyWith(
                       fontSize: Dimens.dp18, fontWeight: FontWeight.w500),
                 ),
@@ -110,7 +110,7 @@ class DashboardPage extends StatelessWidget {
           ),
         ),
       ),
-      floatingActionButton: InkWell(
+      floatingActionButton: GestureDetector(
         onTap: () {
           Navigator.push(
               context,

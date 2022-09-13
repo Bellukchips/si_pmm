@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:sipmm/presentation/pages/auth/auth_page.dart';
-import 'package:sipmm/presentation/pages/features/event/event_page.dart';
 import 'package:sipmm/presentation/pages/features/home/dashboard/dashboard_page.dart';
+import 'package:sipmm/presentation/pages/features/notice/notice_page.dart';
 import 'package:sipmm/presentation/pages/features/perizinan/permission_page.dart';
 import 'package:sipmm/shared/assets.dart';
 import 'package:sipmm/shared/color_app.dart';
@@ -16,7 +16,6 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -59,17 +58,18 @@ class _HomePageState extends State<HomePage> {
             ? const DashboardPage()
             : selectMenu == 'Perizinan'
                 ? const PermissionPage()
-                : selectMenu == 'Acara'
-                    ? const EventPage()
+                : selectMenu == 'Pengumuman'
+                    ? const NoticePage()
                     : Container(),
       ),
     );
   }
-    //! current Menu drawer
+
+  //! current Menu drawer
   String selectMenu = 'Dashboard';
 
   //? generate menu drawer
-  List<String> dataMenu = ['Dashboard', 'Perizinan', 'Acara', 'Keluar'];
+  List<String> dataMenu = ['Dashboard', 'Perizinan', 'Pengumuman', 'Keluar'];
 
   ///
   List<Widget> generateListDrawer(BuildContext context) {
@@ -84,7 +84,7 @@ class _HomePageState extends State<HomePage> {
                     ? Icons.home
                     : e == 'Perizinan'
                         ? Icons.archive
-                        : e == 'Acara'
+                        : e == 'Pengumuman'
                             ? Icons.event
                             : Icons.logout,
                 isSelected: selectMenu == e,

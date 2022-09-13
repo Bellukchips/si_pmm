@@ -1,7 +1,7 @@
-part of '../event_page.dart';
+part of '../notice_page.dart';
 
-class BodyEventPage extends StatelessWidget {
-  const BodyEventPage({super.key});
+class BodyNoticePage extends StatelessWidget {
+  const BodyNoticePage({super.key});
 
   @override
   Widget build(BuildContext context) {

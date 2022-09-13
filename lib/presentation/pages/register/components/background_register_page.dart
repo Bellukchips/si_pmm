@@ -1,13 +1,12 @@
-part of '../auth_page.dart';
+part of '../register_page.dart';
 
-class BackgroundAuthPage extends StatelessWidget {
-  const BackgroundAuthPage({Key? key, this.child}) : super(key: key);
+class BackgroundRegisterPage extends StatelessWidget {
+  const BackgroundRegisterPage({Key? key, this.child}) : super(key: key);
   final Widget? child;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: Colors.white,
       width: double.infinity,
       height: MediaQuery.of(context).size.height,
       child: Stack(
