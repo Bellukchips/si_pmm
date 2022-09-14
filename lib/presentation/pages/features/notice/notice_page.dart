@@ -8,8 +8,17 @@ class NoticePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: SafeArea(child: BodyNoticePage()),
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: ColorApp.primaryColor,
+        centerTitle: true,
+        title: Text(
+          'Pengumuman',
+          style: FontApp.primaryStyle.copyWith(color: Colors.white),
+        ),
+        elevation: 0,
+      ),
+      body: const SafeArea(child: BodyNoticePage()),
     );
   }
 }

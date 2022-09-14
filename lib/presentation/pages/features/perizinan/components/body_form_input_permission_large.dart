@@ -24,6 +24,21 @@ class _BodyFormInputPermissionLargeState
             children: [
               Padding(
                 padding: const EdgeInsets.symmetric(vertical: 10),
+                child: Text('Nama Lengkap', style: FontApp.primaryStyle),
+              ),
+              PrimaryTextField(
+                autofocus: false,
+                colorLabelAndHint: Colors.grey,
+                borderColor: ColorApp.primaryColor,
+                cursorColor: Colors.grey,
+                hintText: 'Nama Lengkap',
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: ColorApp.primaryColor),
+                ),
+                keyboardType: TextInputType.text,
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 10),
                 child: Text('Keterangan Izin', style: FontApp.primaryStyle),
               ),
               PrimaryTextField(

@@ -36,6 +36,8 @@ class _BodyAuthSmallState extends State<BodyAuthSmall> {
               padding: const EdgeInsets.symmetric(horizontal: 20),
               child: TextFormField(
                 decoration: InputDecoration(
+                  hintStyle: TextStyle(color: ColorApp.primaryColor),
+                  labelStyle: TextStyle(color: ColorApp.primaryColor),
                   focusedBorder: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(15),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
@@ -57,6 +59,8 @@ class _BodyAuthSmallState extends State<BodyAuthSmall> {
               child: TextFormField(
                 obscureText: isShowPassword,
                 decoration: InputDecoration(
+                  hintStyle: TextStyle(color: ColorApp.primaryColor),
+                  labelStyle: TextStyle(color: ColorApp.primaryColor),
                   suffixIcon: IconButton(
                     onPressed: togglePass,
                     icon: Icon(

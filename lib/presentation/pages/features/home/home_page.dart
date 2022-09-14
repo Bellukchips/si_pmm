@@ -20,6 +20,16 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        actions: [
+          IconButton(
+              onPressed: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute<void>(
+                        builder: (ctx) => const NoticePage()));
+              },
+              icon: const Icon(Icons.notifications)),
+        ],
         elevation: 0,
         backgroundColor: ColorApp.primaryColor,
       ),
@@ -58,9 +68,7 @@ class _HomePageState extends State<HomePage> {
             ? const DashboardPage()
             : selectMenu == 'Perizinan'
                 ? const PermissionPage()
-                : selectMenu == 'Pengumuman'
-                    ? const NoticePage()
-                    : Container(),
+                : Container(),
       ),
     );
   }
@@ -69,7 +77,7 @@ class _HomePageState extends State<HomePage> {
   String selectMenu = 'Dashboard';
 
   //? generate menu drawer
-  List<String> dataMenu = ['Dashboard', 'Perizinan', 'Pengumuman', 'Keluar'];
+  List<String> dataMenu = ['Dashboard', 'Perizinan', 'Keluar'];
 
   ///
   List<Widget> generateListDrawer(BuildContext context) {
@@ -84,9 +92,7 @@ class _HomePageState extends State<HomePage> {
                     ? Icons.home
                     : e == 'Perizinan'
                         ? Icons.archive
-                        : e == 'Pengumuman'
-                            ? Icons.event
-                            : Icons.logout,
+                        : Icons.logout,
                 isSelected: selectMenu == e,
                 onTap: () {
                   setState(() {

@@ -11,6 +11,29 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
   //! current value dropdown
   String valueDropdown = 'Pilih Golongan';
   String valueDropdownJK = 'Jenis Kelamin';
+
+  ///
+  ///
+  //! current date
+  DateTime? selectedDate = DateTime.now();
+  ValueChanged<DateTime?>? selectDate;
+  //? function to select date
+  Future<void> _selectDate(BuildContext context) async {
+    final DateTime? picked = await showDatePicker(
+      context: context,
+      initialDate: selectedDate!,
+      firstDate: DateTime(1945),
+      initialDatePickerMode: DatePickerMode.day,
+      lastDate: DateTime(2101),
+    );
+    if (picked != null && picked != selectedDate) {
+      setState(() {
+        selectedDate = picked;
+      });
+    }
+  }
+  //!
+
   @override
   Widget build(BuildContext context) {
     return Center(
@@ -20,7 +43,9 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
         child: Form(
           child: ListView(
             children: [
-              
+              const SizedBox(
+                height: 25,
+              ),
               Text(
                 Strings.form_registrasi,
                 style: FontApp.primaryStyle.copyWith(fontSize: Dimens.dp32),
@@ -29,20 +54,18 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
               const SizedBox(
                 height: 55,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text('Username', style: FontApp.primaryStyle),
-              ),
               TextFormField(
                 decoration: InputDecoration(
+                  hintStyle: TextStyle(color: ColorApp.primaryColor),
+                  labelStyle: TextStyle(color: ColorApp.primaryColor),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                   labelText: 'Username',
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                 ),
@@ -50,20 +73,18 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
               const SizedBox(
                 height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text('Nama Lengkap', style: FontApp.primaryStyle),
-              ),
               TextFormField(
                 decoration: InputDecoration(
+                  hintStyle: TextStyle(color: ColorApp.primaryColor),
+                  labelStyle: TextStyle(color: ColorApp.primaryColor),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                   labelText: 'Nama Lengkap',
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                 ),
@@ -71,20 +92,18 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
               const SizedBox(
                 height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text('Email', style: FontApp.primaryStyle),
-              ),
               TextFormField(
                 decoration: InputDecoration(
+                  hintStyle: TextStyle(color: ColorApp.primaryColor),
+                  labelStyle: TextStyle(color: ColorApp.primaryColor),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                   labelText: 'Email',
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                 ),
@@ -92,20 +111,18 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
               const SizedBox(
                 height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text('Password', style: FontApp.primaryStyle),
-              ),
               TextFormField(
                 decoration: InputDecoration(
+                  hintStyle: TextStyle(color: ColorApp.primaryColor),
+                  labelStyle: TextStyle(color: ColorApp.primaryColor),
                   focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                   labelText: 'Password',
                   border: const OutlineInputBorder(),
                   enabledBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(15),
+                    borderRadius: BorderRadius.circular(10),
                     borderSide: BorderSide(color: ColorApp.primaryColor),
                   ),
                 ),
@@ -113,12 +130,8 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
               const SizedBox(
                 height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text('Pilih Golongan (Kitab / Tafhidz)',
-                    style: FontApp.primaryStyle),
-              ),
               InputDropdown(
+                labelText: 'Pilih golongan (Kitab/Tafhidz)',
                 colorIcon: ColorApp.primaryColor,
                 onPressed: () {
                   UtilsApp.showBottomSheet(
@@ -148,18 +161,14 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
                     ),
                   );
                 },
-                labelText: 'Golongan',
                 valueStyle: FontApp.primaryStyle,
                 valueText: valueDropdown,
               ),
               const SizedBox(
                 height: 25,
               ),
-              Padding(
-                padding: const EdgeInsets.symmetric(vertical: 10),
-                child: Text('Pilih Jenis Kelamin', style: FontApp.primaryStyle),
-              ),
               InputDropdown(
+                labelText: 'Jenis Kelamin',
                 colorIcon: ColorApp.primaryColor,
                 onPressed: () {
                   UtilsApp.showBottomSheet(
@@ -189,9 +198,35 @@ class _BodyRegisterSmallState extends State<BodyRegisterSmall> {
                     ),
                   );
                 },
-                labelText: 'Jenis Kelamin',
                 valueStyle: FontApp.primaryStyle,
                 valueText: valueDropdownJK,
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              InputDropdown(
+                colorIcon: ColorApp.primaryColor,
+                labelText: 'Tanggal Lahir',
+                valueText: DateFormat.yMMMd().format(selectedDate!),
+                onPressed: () {
+                  _selectDate(context);
+                },
+              ),
+              const SizedBox(
+                height: 25,
+              ),
+              MultilineInputText(
+                fillColor: Colors.transparent,
+                focusedBorder: OutlineInputBorder(
+                  borderSide: BorderSide(color: ColorApp.primaryColor),
+                ),
+                autofocus: false,
+                colorLabelAndHint: ColorApp.primaryColor,
+                borderColor: ColorApp.primaryColor,
+                cursorColor: Colors.grey,
+                hintText: 'Alamat',
+                maxLines: 5,
+                maxLength: 150,
               ),
               const SizedBox(
                 height: 25,
