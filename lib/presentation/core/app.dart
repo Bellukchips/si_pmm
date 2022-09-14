@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:sipmm/presentation/pages/auth/auth_page.dart';
+import 'package:sipmm/presentation/pages/splash/splash_page.dart';
 import 'package:sipmm/shared/shared.dart';
 
 class App extends StatelessWidget {
@@ -9,7 +9,7 @@ class App extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: const AuthPage(),
+      home: const SplashPage(),
       title: Strings.app,
     );
   }
