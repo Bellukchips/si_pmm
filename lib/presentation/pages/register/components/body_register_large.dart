@@ -242,7 +242,7 @@ class _BodyRegisterLargeState extends State<BodyRegisterLarge> {
                           builder: (_) => const AuthPage()));
                 },
                 style: FontApp.primaryStyle.copyWith(color: Colors.white),
-                text: Strings.simpanDanAjukan,
+                text: Strings.register,
               ),
               const SizedBox(
                 height: 100,
